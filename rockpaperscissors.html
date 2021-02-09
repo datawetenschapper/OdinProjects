@@ -1,0 +1,42 @@
+<script>
+
+    //Array of rock paper scissors
+    var gameChoices = ['rock', 'paper', 'scissors'];
+    //Will randomly return rock paper or scissors
+    var computerPlay = gameChoices[Math.floor(Math.random() * gameChoices.length)];
+    console.log(computerPlay);
+
+
+
+    //Create an input section for the game and rotate it one round by returning
+    function oneRound(PlayerSelection, computerSelection) {
+        if (PlayerSelection === computerSelection) { //checks for tie
+            return ("It's a tie!");
+        }
+        else if (PlayerSelection === 'rock' && computerSelection === 'paper') { //compares rock v paper | loss
+            return ('You lose! Paper beats Rock!');
+        }
+        else if (PlayerSelection === 'rock' && computerSelection === 'scissors') { // compares rock v scissors | win
+            return ('You Win! Rocks beats Scissors!');
+        }
+        else if (PlayerSelection === 'paper' && computerSelection === 'rock') { // compares paper vs rock | win
+            return ('You Win! Paper beats Rock!');
+        }
+        else if (PlayerSelection === 'rock' && computerSelection === 'paper') { // compares rock vs paper | loss
+            return ('You lose! Paper beats Rock!');
+        }
+        else return ('wrong answer');
+    }
+
+    var PlayerSelection = prompt('Rock, paper or scissors?').toLowerCase(); //asks user for choice and ensures it's case insensitive
+    const computerSelection = computerPlay;
+    console.log(oneRound(PlayerSelection, computerSelection));
+
+    function game() { //have it run 5 iterations and print it each time
+        var roundsRemaining = 5;
+        while (roundsRemaining != 0){
+            
+        }
+    }
+    
+</script>

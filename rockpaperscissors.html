@@ -9,7 +9,9 @@
 
 
     //Create an input section for the game and rotate it one round by returning
-    function oneRound(PlayerSelection, computerSelection) {
+    function oneRound() {
+        let PlayerSelection = prompt('Rock, paper or scissors?').toLowerCase(); //asks user for choice and ensures it's case insensitive
+        let computerSelection = computerPlay;
         if (PlayerSelection === computerSelection) { //checks for tie
             return ("It's a tie!");
         }
@@ -22,21 +24,21 @@
         else if (PlayerSelection === 'paper' && computerSelection === 'rock') { // compares paper vs rock | win
             return ('You Win! Paper beats Rock!');
         }
-        else if (PlayerSelection === 'rock' && computerSelection === 'paper') { // compares rock vs paper | loss
+        else if (PlayerSelection === 'scissors' && computerSelection === 'paper') { // compares rock vs paper | loss
             return ('You lose! Paper beats Rock!');
+
+
         }
         else return ('wrong answer');
     }
 
-    var PlayerSelection = prompt('Rock, paper or scissors?').toLowerCase(); //asks user for choice and ensures it's case insensitive
-    const computerSelection = computerPlay;
-    console.log(oneRound(PlayerSelection, computerSelection));
 
     function game() { //have it run 5 iterations and print it each time
         var roundsRemaining = 5;
-        while (roundsRemaining != 0){
-            oneRound(PlayerSelection, computerSelection);
-            roundsRemaining--;
+        while (roundsRemaining > 0) {
+            oneRound();
+            roundsRemaining--
+            console.log(oneRound());
         }
     }
     game();

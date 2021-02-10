@@ -16,18 +16,22 @@
             return ("It's a tie!");
         }
         else if (PlayerSelection === 'rock' && computerSelection === 'paper') { //compares rock v paper | loss
-            return ('You lose! Paper beats Rock!');
+            return ('You lose! Rock does not beat Paper!');
         }
         else if (PlayerSelection === 'rock' && computerSelection === 'scissors') { // compares rock v scissors | win
-            return ('You Win! Rocks beats Scissors!');
+            return ('You Win! Rock beats Scissors!');
         }
         else if (PlayerSelection === 'paper' && computerSelection === 'rock') { // compares paper vs rock | win
             return ('You Win! Paper beats Rock!');
         }
-        else if (PlayerSelection === 'scissors' && computerSelection === 'paper') { // compares rock vs paper | loss
-            return ('You lose! Paper beats Rock!');
-
-
+        else if (PlayerSelection === 'paper' && computerSelection === 'scissors') { // compares paper vs scissors | loss
+            return ('You Lose! Paper does not beat Scissors!');
+        }
+        else if (PlayerSelection === 'scissors' && computerSelection === 'paper') { // compares scissors vs paper | win
+            return ('You win! Scissors beat paper!');
+        }
+        else if (PlayerSelection === 'scissors' && computerSelection === 'rock') { // compares scissors vs rock | loss
+            return ('You Lose! Scissors do not beat Rock!');
         }
         else return ('wrong answer');
     }
@@ -43,3 +47,10 @@
     }
     game();
 </script>
+
+rock vs paper
+rock vs scissors
+scissors vs rock
+scissors vs paper
+paper vs scissors
+paper vs rock

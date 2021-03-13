@@ -1,0 +1,75 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <h1>This is the sktechiest etch you'll ever make.</h1>
+    <button id='reset'>Reset drawing</button>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+
+
+
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    button {
+        text-align: center;
+        position: relative;
+        left: 46%;
+        width: 8%
+    }
+
+    #container {
+        position: static;
+        left: 20%;
+        right: 20%;
+        bottom: 10%;
+        top: 15%;
+        max-height: 85%;
+        border-color: blueviolet;
+        border: 3%;
+        border-style: dashed;
+        display: grid;
+
+    }
+</style>
+
+</html>
+<script>
+    var resetButton = document.querySelector('#reset')
+    var gridFrame = document.querySelector('#container');
+    var gridStart = 16    
+    var gridPercentage = 100/(gridStart * gridStart)  ;
+
+    let styleDivs =
+        `
+        display: grid;
+        position:static;
+        border: #333 1px dotted; /* give the outline a black colour so you can see the dimensions */
+        `
+
+    for (x = 0; x < (gridStart * gridStart); x++) { //create a list of divs, 16 rows, 16 arrays, 
+
+        var gridDiv = document.createElement('div')
+        gridDiv.classList.add('grid');
+        gridDiv.style.height= gridPercentage+'%';
+        gridDiv.style.width= gridPercentage+'%';
+        gridDiv.style = styleDivs
+        gridFrame.appendChild(gridDiv);    //put divs into "container" div.
+    }
+    
+
+    // give the divs a different colour so you can recognise them + eventlistener for hover to change colour permanently
+
+    // add button in head to reset divs. 
+    // when button is pressed alert a prompt asking how many squares (divs) there should be within the window, max 100
+
+    // when mouse moves it inputs a random rgb value every
+
+
+</script>

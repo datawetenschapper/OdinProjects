@@ -52,22 +52,38 @@
         border: #333 1px dotted; /* give the outline a black colour so you can see the dimensions */
         `;
 
-    for (x = 0; x < (gridStart * gridStart); x++) { //create a list of divs, 16 rows, 16 arrays, 
 
-        var gridDiv = document.createElement('div');
-        gridDiv.classList.add('grid');
-        gridDiv.style.display = "grid";
-        gridDiv.style.display = "static";
-        gridDiv.style.border = "#333 1px solid";
-        gridFrame.style.gridTemplateRows ="repeat(" + gridStart + ", 1fr )"; 
-        gridFrame.style.gridTemplateColumns= "repeat(" + gridStart + ", 1fr )"; 
-        gridFrame.appendChild(gridDiv);    //put divs into "container" div.
+    function oneGame() {
+        for (x = 0; x < (gridStart * gridStart); x++) {  
+            var gridDiv = document.createElement('div');
+            gridDiv.classList.add('grid');
+            //give it some style
+            gridDiv.style.display = "static"; // ensures it doesn't move around too much
+            gridDiv.style.border = "#333 1px solid"; // black border 1 pixel wide
+            gridFrame.style.gridTemplateRows = "repeat(" + gridStart + ", 1fr )"; // makes sure the columns and rows adhere to the frame
+            gridFrame.style.gridTemplateColumns = "repeat(" + gridStart + ", 1fr )";
+            gridFrame.appendChild(gridDiv);   //put divs into "container" div.
+            gridDiv.addEventListener("mouseover", function (event) {     
+                // eventlistener for hover to change colour permanently to random colour so you can distinguish them.
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                event.target.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+            })
+            // make the reset button ask new rows and columns and make each cube white.
+        
+        }
     }
-    
+    document.addEventListener("load", oneGame());
+    resetButton.onclick = function () {
+        gridStart = parseInt(prompt("Enter the amount of rows and cubes you desire."));
+        if (gridStart <= 100 && gridStart > 0) {
+            document.getElementsByClassName('div').backgroundColor = "white";
+            oneGame();
+        }
+        else alert("Please enter a number between 1 and 100 to reset your game");
+    }
 
-    // give the divs a different colour so you can recognise them + eventlistener for hover to change colour permanently
-
-    // add button in head to reset divs. 
     // when button is pressed alert a prompt asking how many squares (divs) there should be within the window, max 100
 
     // when mouse moves it inputs a random rgb value every

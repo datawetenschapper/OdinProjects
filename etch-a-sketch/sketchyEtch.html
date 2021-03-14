@@ -78,8 +78,8 @@
     resetButton.onclick = function () {
         gridStart = parseInt(prompt("Enter the amount of rows and cubes you desire."));
         if (gridStart <= 100 && gridStart > 0) {
-            document.getElementsByClassName('div').backgroundColor = "white";
-            oneGame();
+            whitenGame = document.getElementsByClassName('grid').backgroundColor = "white";
+            oneGame(whitenGame);
         }
         else alert("Please enter a number between 1 and 100 to reset your game");
     }

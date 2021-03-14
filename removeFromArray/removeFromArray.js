@@ -7,6 +7,6 @@ const removeFromArray = function(... arguments) {
  
     };
     
-}
+
 
 module.exports = removeFromArray

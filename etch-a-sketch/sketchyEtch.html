@@ -31,11 +31,11 @@
         bottom: 10%;
         top: 15%;
         max-height: 85%;
+        min-height: 70%;
         border-color: blueviolet;
         border: 3%;
         border-style: dashed;
         display: grid;
-
     }
 </style>
 
@@ -44,22 +44,23 @@
     var resetButton = document.querySelector('#reset')
     var gridFrame = document.querySelector('#container');
     var gridStart = 16    
-    var gridPercentage = 100/(gridStart * gridStart)  ;
 
     let styleDivs =
         `
         display: grid;
         position:static;
         border: #333 1px dotted; /* give the outline a black colour so you can see the dimensions */
-        `
+        `;
 
     for (x = 0; x < (gridStart * gridStart); x++) { //create a list of divs, 16 rows, 16 arrays, 
 
         var gridDiv = document.createElement('div')
         gridDiv.classList.add('grid');
-        gridDiv.style.height= gridPercentage+'%';
-        gridDiv.style.width= gridPercentage+'%';
-        gridDiv.style = styleDivs
+        gridDiv.style.display = "grid";
+        gridDiv.style.display = "static";
+        gridDiv.style.border = "#333 1px dotted";
+        gridFrame.style.gridTemplateRows ="repeat("+ gridStart + " 1fr )"; 
+        gridFrame.style.gridTemplateColumns= "repeat("+ gridStart + " 1fr )"; 
         gridFrame.appendChild(gridDiv);    //put divs into "container" div.
     }
     

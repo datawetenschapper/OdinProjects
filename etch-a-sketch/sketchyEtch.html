@@ -54,7 +54,7 @@
 
 
     function oneGame() {
-        for (x = 0; x < (gridStart * gridStart); x++) {  
+        for (x = 0; x < (gridStart * gridStart); x++) {
             var gridDiv = document.createElement('div');
             gridDiv.classList.add('grid');
             //give it some style
@@ -63,18 +63,19 @@
             gridFrame.style.gridTemplateRows = "repeat(" + gridStart + ", 1fr )"; // makes sure the columns and rows adhere to the frame
             gridFrame.style.gridTemplateColumns = "repeat(" + gridStart + ", 1fr )";
             gridFrame.appendChild(gridDiv);   //put divs into "container" div.
-            gridDiv.addEventListener("mouseover", function (event) {     
+            gridDiv.addEventListener("mouseover", function (event) {
                 // eventlistener for hover to change colour permanently to random colour so you can distinguish them.
                 const r = Math.floor(Math.random() * 256);
                 const g = Math.floor(Math.random() * 256);
                 const b = Math.floor(Math.random() * 256);
                 event.target.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
             })
-            // make the reset button ask new rows and columns and make each cube white.
-        
+
         }
     }
-    document.addEventListener("load", oneGame());
+    document.addEventListener("load", oneGame()); // so it runs when page is loaded
+
+    // make the reset button ask new rows and columns and make old cubes white, max 100.
     resetButton.onclick = function () {
         gridStart = parseInt(prompt("Enter the amount of rows and cubes you desire."));
         if (gridStart <= 100 && gridStart > 0) {
@@ -83,9 +84,7 @@
         else alert("Please enter a number between 1 and 100 to reset your game");
     }
 
-    // when button is pressed alert a prompt asking how many squares (divs) there should be within the window, max 100
 
-    // when mouse moves it inputs a random rgb value every
 
 
 </script>

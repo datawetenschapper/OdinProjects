@@ -66,7 +66,7 @@
     resetButton.onclick = function () {    // make the reset button ask new rows and columns and make old cubes white, max 100.
         gridStart = parseInt(prompt("Enter the amount of rows and cubes you desire."));
         if (gridStart <= 100 && gridStart > 0) {
-            Array.from(gridFrame.childNodes).forEach((element) => gridFrame.removeChild(element)); // deletes previous grid within gridFrame entirely
+            Array.from(gridFrame.childNodes).forEach((element) => gridFrame.removeChild(element)); // deletes previous divs within gridFrame entirely
             oneGame();
         }
         else alert("Please enter a number between 1 and 100 to reset your game");

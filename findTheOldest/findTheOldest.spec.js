@@ -21,7 +21,11 @@ describe('findTheOldest', function () {
     ]
     expect(findTheOldest(people).name).toEqual('Ray');
   });
+<<<<<<< HEAD
   it('finds the oldest person if someone is still living', function () {
+=======
+  it('finds the oldest person if someone is still living', function() {
+>>>>>>> a014d8d0f87a2fac1d9ec440b991a15779800405
     const people = [
       {
         name: 'Carly',

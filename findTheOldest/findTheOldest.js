@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* 
         What I know:
     it is an array with three objects. Each object has three keys.
@@ -31,9 +32,6 @@ const findTheOldest = function (people) {
         console.log(test);
     };
     return (nameEldest);
-};
 
 
 module.exports = findTheOldest
-
-

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>calculatrix 💪💪</title>
+</head>
+  <body>
+    <div class="operator" >
+    <button id="add" type="button">add</button>
+    <button id="subtract" type="button">subtract</button>
+    <button id="multiply" type="button">multiply</button>
+    <button id="divide" type="button">divide</button>
+    </div>
+    <div class="number" onclick="">
+    <button id="1" type="button">1</button>
+    <button id="2" type="button">2</button>
+    <button id="3" type="button">3</button>
+    <button id="4" type="button">4</button>
+    <button id="5" type="button">5</button>
+    <button id="6" type="button">6</button>
+    <button id="7" type="button">7</button>
+    <button id="8" type="button">8</button>
+    <button id="9" type="button">9</button>
+    <button id="0" type="button">0</button>
+    </div>
+    <button id="operate" type="button">operate</button>
+  </body>
+  <script>
+  function add(...number) {
+    return (number[0] + number[1])
+  }
+
+  function subtract(...number) {
+    return (number[0] - number[1]);
+  }
+
+  function sum(number) {
+    let start = 0;
+    for (var i in number) { start += parseFloat(number[i]); }
+    return start
+  }
+
+  function multiply(number) {
+
+    let start = 1;
+    for (var i in number) { start *= parseFloat(number[i]); }
+    return start
+  }
+
+
+let operate = function () {
+    first = 
+    second = parseFloat(prompt("second number:"))
+    total = (first + second)
+    return (total)
+    console.log(total)
+};
+  document.getElementsByClassName("number").addEventListener("click", ) 
+  </script>

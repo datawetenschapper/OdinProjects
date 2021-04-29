@@ -1,0 +1,77 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <h1>This is the sktechiest etch you'll ever make.</h1>
+    <button id='reset'>Reset drawing</button>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+
+
+
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    button {
+        text-align: center;
+        position: relative;
+        left: 46%;
+        width: 8%
+    }
+
+    #container {
+        position: static;
+        left: 20%;
+        right: 20%;
+        bottom: 10%;
+        top: 15%;
+        max-height: 85%;
+        min-height: 70%;
+        border-color: grey;
+        border: 3%;
+        border-style: dashed;
+        display: grid;
+    }
+</style>
+
+</html>
+<script>
+    let resetButton = document.querySelector('#reset');
+    let gridFrame = document.querySelector('#container');
+    let gridStart = 16;
+    function oneGame() {
+        for (x = 0; x < (gridStart * gridStart); x++) {
+            let gridDiv = document.createElement('div');
+            gridDiv.classList.add('grid');// grid ensures it retains its form and divides the page into a 2-d layout (rows & columns)
+            gridDiv.style.display = "static"; //it doesn't move around when resizing window
+            gridDiv.style.border = "#333 1px solid"; // black border 1 pixel wide
+            gridFrame.style.gridTemplateColumns = "repeat(" + gridStart + ", 1fr )"; // this ensures the size is evenly distributed between rows and columns and all of them fit within the gridFrame.
+            gridFrame.appendChild(gridDiv);//put divs into "container" div.
+            gridDiv.addEventListener("mouseover", function (event) {// eventlistener for hover to change colour permanently to random colour so you can distinguish them.
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                event.target.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+            })
+
+        }
+    }
+
+
+    resetButton.onclick = function () {    // make the reset button ask new rows and columns and make old cubes white, max 100.
+        gridStart = parseInt(prompt("Enter the amount of rows and cubes you desire."));
+        if (gridStart <= 100 && gridStart > 0) {
+            Array.from(gridFrame.childNodes).forEach((element) => gridFrame.removeChild(element)); // deletes previous divs within gridFrame entirely
+            oneGame();
+        }
+        else alert("Please enter a number between 1 and 100 to reset your game");
+    }
+
+    document.addEventListener("load", oneGame()); // grid runs instantly  when page is loaded
+
+</script>

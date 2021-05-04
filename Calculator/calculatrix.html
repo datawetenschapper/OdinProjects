@@ -10,8 +10,9 @@
   <div class="operator">
     <button id="+" type="button" onClick="operation(this.id)">add</button>
     <button id="-" type="button" onClick="operation(this.id)">subtract</button>
-    <button id="multiply" type="button" onClick="operation_multiply(this.id)">multiply</button>
-    <button id="divide" type="button" onClick="operation_divide(this.id)">divide</button>
+    <button id="*" type="button" onClick="operation(this.id)">multiply</button>
+    <button id="/" type="button" onClick="operation(this.id)">divide</button>
+    <button id="**" type="button" onClick="operation(this.id)">power</button>
   </div>
   <div class="number">
     <button id="1" type="button" onClick="reply_click(this.id)">1</button>
@@ -30,51 +31,44 @@
   <p id="total"></p>
 </body>
 <style>
- 
-    body {
+  body {
     background-color: black;
   }
- 
-    p {color: white;}
+
+  p {
+    color: white;
+  }
 </style>
 <script>
-  let currentInput= [];
-  let pastInput= [];
+  let currentInput=0 ;
+  let pastInput = 0;
+  let currentOperation = undefined; 
+  const actions = {
+    '+': (currentInput, pastInput) => parseFloat(currentInput) + parseFloat(pastInput),
+    '-': (currentInput, pastInput) => parseFloat(currentInput) - parseFloat(pastInput),
+    '*': (currentInput, pastInput) => parseFloat(currentInput) * parseFloat(pastInput),
+    '/': (currentInput, pastInput) => parseFloat(currentInput) / parseFloat(pastInput),
+    '^': (currentInput, pastInput) => parseFloat(currentInput) ** parseFloat(pastInput),
+  };
 
-  function reply_click(clicked_id){
+  function reply_click(clicked_id) {
     currentInput += clicked_id;
     console.log(currentInput);
     document.getElementById("total").innerHTML = currentInput;
   }
 
-
-  function operation(clicked_Id){
-    pastInput += currentInput;
-    currentInput = [clicked_Id, ];
-    document.getElementById("previous").innerHTML = pastInput;
-    document.getElementById("total").innerHTML = currentInput;
-  }
-
-  function operation_subtract(clicked_Id) {
-    pastInput = pastInput - currentInput;
+  function operation(clicked_Id) {
+    pastInput += parseFloat(currentInput);
+    console.log(typeof (pastInput, currentInput)+ pastInput + currentInput);
+    if (currentOperation == !undefined || pastInput == !undefined) {
+      pastInput = actions[clicked_Id];
+      console.log(actions[clicked_Id] + ' succesfully operated')
+    }
     currentInput = 0;
+    currentOperation = [clicked_Id]
     document.getElementById("previous").innerHTML = pastInput;
     document.getElementById("total").innerHTML = currentInput;
   }
-
-  function sum(number) {
-    let start = 0;
-    for (var i in number) { start += parseFloat(number[i]); }
-    return start
-  }
-
-  function multiply(number) {
-
-    let start = 1;
-    for (var i in number) { start *= parseFloat(number[i]); }
-    return start
-  }
-
 
   let operate = function () {
     first =

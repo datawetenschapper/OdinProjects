@@ -42,27 +42,32 @@
 <script>
   let currentInput=0 ;
   let pastInput = 0;
-  let currentOperation = undefined; 
+  let total = 0;
+  let currentOperation; 
   const actions = {
     '+': (currentInput, pastInput) => parseFloat(currentInput) + parseFloat(pastInput),
     '-': (currentInput, pastInput) => parseFloat(currentInput) - parseFloat(pastInput),
     '*': (currentInput, pastInput) => parseFloat(currentInput) * parseFloat(pastInput),
     '/': (currentInput, pastInput) => parseFloat(currentInput) / parseFloat(pastInput),
-    '^': (currentInput, pastInput) => parseFloat(currentInput) ** parseFloat(pastInput),
+    '**': (currentInput, pastInput) => parseFloat(currentInput) ** parseFloat(pastInput),
   };
 
   function reply_click(clicked_id) {
     currentInput += clicked_id;
-    console.log(currentInput);
+    //console.log(currentInput + " |pastInput = " + typeof (pastInput) + pastInput + " |currentInput = " + typeof (currentInput) + currentInput + " |currentOperation = " + currentOperation);
     document.getElementById("total").innerHTML = currentInput;
   }
 
   function operation(clicked_Id) {
-    pastInput += parseFloat(currentInput);
-    console.log(typeof (pastInput, currentInput)+ pastInput + currentInput);
-    if (currentOperation == !undefined || pastInput == !undefined) {
-      pastInput = actions[clicked_Id];
-      console.log(actions[clicked_Id] + ' succesfully operated')
+    //console.log("YOU JUST CLICKED AN OPERATOR: "+ clicked_Id+ " |pastInput = " +typeof (pastInput)+pastInput+" |currentInput = "+ typeof(currentInput) + currentInput + " |currentOperation = "+ currentOperation);
+    for (let [key] of Object.entries(actions)) { 
+      if (currentOperation == key ) {
+        actions[clicked_Id];
+        console.log(actions[clicked_Id] + ' succesfully operated')
+      }
+      else {
+        pastInput += parseFloat(currentInput);
+      }
     }
     currentInput = 0;
     currentOperation = [clicked_Id]
